@@ -8,7 +8,11 @@ on:
   pull_request:
     branches:
       - main
+      - master
   workflow_dispatch: # Allows manual trigger anytime from GitHub Actions tab
+
+permissions:
+  contents: write
 
 jobs:
   build-android-apk:
@@ -52,15 +56,32 @@ jobs:
           chmod +x gradlew
 
       # Step 8: Build Android APK using Gradle
-      - name: Build Android Debug APK
+      - name: Build Android APK
         run: |
           cd android
           ./gradlew assembleDebug --no-daemon --stacktrace
+          # Ensure direct file is named WorkflowHR.apk
+          find app/build/outputs/apk -name "*.apk" -exec cp -v {} app/build/outputs/apk/debug/WorkflowHR.apk \;
 
       # Step 9: Upload APK as downloadable GitHub Artifact
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: WorkflowHR-App-APK
-          path: android/app/build/outputs/apk/debug/*.apk
+          name: WorkflowHR-APK
+          path: android/app/build/outputs/apk/debug/WorkflowHR.apk
           retention-days: 30
+
+      # Step 10: Create Direct GitHub Release (1-click download without ZIP)
+      - name: Create Direct APK Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        continue-on-error: true
+        with:
+          tag_name: v1.0.0
+          name: Workflow HR Android App
+          body: |
+            ### 📱 Workflow HR Android Mobile App
+            সরাসরি ডাউনলোড করে ফোনে ইনস্টল করার জন্য নিচের **WorkflowHR.apk** ফাইলের লিঙ্কে ক্লিক করুন। কোনো জিপ (ZIP) আনপ্যাক করতে হবে না।
+          files: android/app/build/outputs/apk/debug/WorkflowHR.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
