@@ -25,11 +25,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       # Step 3: Install all frontend dependencies
       - name: Install Node Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       # Step 4: Build web app dist bundle
       - name: Build Web Application
@@ -45,7 +44,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-          cache: 'gradle'
 
       # Step 7: Grant execute permission for gradlew
       - name: Make Gradlew Executable
@@ -57,7 +55,7 @@ jobs:
       - name: Build Android Debug APK
         run: |
           cd android
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleDebug --no-daemon --stacktrace
 
       # Step 9: Upload APK as downloadable GitHub Artifact
       - name: Upload APK Artifact
