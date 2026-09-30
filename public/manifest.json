@@ -1,0 +1,57 @@
+{
+  "name": "Workflow HR - Enterprise HR & Attendance",
+  "short_name": "Workflow HR",
+  "description": "Multi-Branch HR, Workforce Automation, Live Face Attendance & Payroll Management Android Application",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Smart Face Clock",
+      "short_name": "Face Clock",
+      "description": "Live Face & Geofenced Attendance",
+      "url": "/?action=attendance",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "My Portal",
+      "short_name": "Portal",
+      "description": "Employee Self Service Portal",
+      "url": "/?tab=my-portal",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Employees Directory",
+      "short_name": "Directory",
+      "description": "Browse and search team members",
+      "url": "/?tab=employees",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Payroll Management",
+      "short_name": "Payroll",
+      "description": "Salary slips and loan management",
+      "url": "/?tab=payroll",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
