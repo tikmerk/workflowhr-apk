@@ -28,13 +28,13 @@ export const ThemeLanguageProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   });
 
-  // Theme State - Default to dark or saved preference
+  // Theme State - Default to light (white background) as requested by user
   const [theme, setThemeState] = useState<Theme>(() => {
     try {
       const saved = localStorage.getItem("workflow_hr_theme");
-      return (saved === "light" || saved === "dark") ? saved : "dark";
+      return (saved === "light" || saved === "dark") ? saved : "light";
     } catch {
-      return "dark";
+      return "light";
     }
   });
 

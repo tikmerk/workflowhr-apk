@@ -52,7 +52,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   return (
     <div
       id="mobile-bottom-navigation-bar"
-      className="fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800/90 px-3 py-1 flex items-center justify-around shadow-2xl safe-bottom text-slate-600 dark:text-slate-400 select-none transition-all"
+      className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-3 py-1 flex items-center justify-around shadow-[0_-4px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.4)] safe-bottom text-slate-600 dark:text-slate-400 select-none transition-colors duration-200"
     >
       {/* 1. Dashboard */}
       <button

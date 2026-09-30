@@ -89,7 +89,7 @@ export const CompanyBrandingProvider: React.FC<{ children: React.ReactNode }> = 
     } catch (e) {
       console.warn(e);
     }
-    return true; // Default ON as requested
+    return false; // Default OFF so demo accounts NEVER flash on start
   });
 
   // Sync from Firestore on mount & subscribe to real-time updates
