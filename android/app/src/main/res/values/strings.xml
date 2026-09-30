@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Workflow HR</string>
+    <string name="title_activity_main">Workflow HR</string>
+    <string name="package_name">com.workflowhr.app</string>
+    <string name="custom_url_scheme">com.workflowhr.app</string>
+</resources>

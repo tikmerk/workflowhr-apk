@@ -1,0 +1,27 @@
+{
+	"appId": "com.workflowhr.app",
+	"appName": "Workflow HR",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"server": {
+		"androidScheme": "https",
+		"cleartext": true
+	},
+	"android": {
+		"allowMixedContent": true,
+		"captureInput": true,
+		"webContentsDebuggingEnabled": true
+	},
+	"plugins": {
+		"Camera": {
+			"permissions": [
+				"camera"
+			]
+		},
+		"Geolocation": {
+			"permissions": [
+				"location"
+			]
+		}
+	}
+}

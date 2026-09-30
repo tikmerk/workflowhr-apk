@@ -27,6 +27,16 @@ if [ -f "$TEMP_DIR/firestore.rules" ]; then
   cp "$TEMP_DIR/firestore.rules" ./
 fi
 
+if [ -d "$TEMP_DIR/.github" ]; then
+  mkdir -p ./.github
+  cp -a "$TEMP_DIR/.github/." ./.github/
+fi
+
+if [ -d "$TEMP_DIR/android" ]; then
+  mkdir -p ./android
+  cp -a "$TEMP_DIR/android/." ./android/
+fi
+
 rm -rf "$TEMP_DIR"
 
 echo "Running type validation..."
