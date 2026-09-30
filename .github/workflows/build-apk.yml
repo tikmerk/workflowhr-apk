@@ -22,12 +22,14 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+      working-directory: ./android  # এখানে 'android' এর জায়গায় আপনার ফোল্ডারের নাম দিন (যদি আলাদা হয়)
 
     - name: Build Debug APK
       run: ./gradlew assembleDebug
+      working-directory: ./android  # এখানেও ফোল্ডারের নাম দিন
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: workflow-hr-app
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: android/app/build/outputs/apk/debug/app-debug.apk # এখানে শুরুতে 'android/' যুক্ত করা হয়েছে
